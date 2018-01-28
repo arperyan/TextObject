@@ -1,0 +1,9 @@
+ {
+	"name": "Text Object",
+	"description": "Classic QlikView text object with extended formatting options and HTML support.",
+	"icon": "text",
+	"type": "visualization",
+	"version": "1.0.0",
+	"author": "Ryan Arpe",
+	"keywords": "qlik-sense, visualization"
+}
