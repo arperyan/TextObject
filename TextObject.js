@@ -251,7 +251,7 @@ function ( qlik, $, cssContent) {
       /// ---------- Reverse the color slider so that linear gradient used for obacity shows and hides the image (right to left) -------------------------------------------------------
       var bgtranspancy = 1 - vars.Backgroundtransparency;
 
-  
+
       if ("color" == vars.Bgtype) $element.find(".objectStyle").css("background-color", vars.Backgroundcolor);
       else if ("url" == vars.Bgtype) vars.Texts += '<iframe src="' + vars.Iframeurl + '" width="100%" height="100%"  />';
       else switch ($element.find(".objectStyle").css("background-image", "linear-gradient(rgba(255,255,255,"+ bgtranspancy +") ,rgba(255,255,255,"+ bgtranspancy +")), url(" + vars.Bgimage + ")"),
