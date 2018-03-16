@@ -136,7 +136,7 @@ function ( qlik, $, cssContent) {
                   type: "object",
                   label: "Background Color",
                   component: "color-picker",
-                  dualOuput: true,
+                  dualOutput: true,
                   ref: "bgColor",
                   show: function(layout) {
                     return "color" == layout.bgtype
