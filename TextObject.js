@@ -22,7 +22,7 @@ function ( qlik, $, cssContent) {
             Font: {
               ref: "font",
               label: "Font",
-              type: "items",
+              type: "items", 
               items: {
                 fontColorPicker: {
                   type: "object",
@@ -205,8 +205,9 @@ function ( qlik, $, cssContent) {
       }
     },
     snapshot: {
-      canTakeSnapshot: true,
-      export: true
+      snapshot: false,
+			export: false,
+			exportData : false
     },
     paint: function($element,layout) {
 
@@ -229,7 +230,7 @@ function ( qlik, $, cssContent) {
 
       vars.myHtml = '<div id="' + vars.myId + '" class="objectStyle"></div>' ;
 
-
+      
 
       switch ($element.html(vars.myHtml), $element.find("#"+ vars.myId).css("color", vars.Fontcolor), $element.find(".objectStyle").css("font-size", vars.Fontsize), vars.Fontstyle) {
         case "bold":
@@ -244,7 +245,7 @@ function ( qlik, $, cssContent) {
 
 
       $element.find(".objectStyle").css("height", "100%");
-      $element.find(".objectStyle").css("font-family", vars.Fontfamily);
+      $element.find(".objectStyle").css("font-family", vars.Fontfamily); 
       // $element.find(".objectStyle").css("opacity", vars.Backgroundtransparency);
 
 
@@ -252,7 +253,20 @@ function ( qlik, $, cssContent) {
       var bgtranspancy = 1 - vars.Backgroundtransparency;
 
 
-      if ("color" == vars.Bgtype) $element.find(".objectStyle").css("background-color", vars.Backgroundcolor);
+      function hexToRGB(hex, alpha) {
+        var r = parseInt(hex.slice(1, 3), 16),
+            g = parseInt(hex.slice(3, 5), 16),
+            b = parseInt(hex.slice(5, 7), 16);
+    
+        if (alpha || alpha === 0) {
+            return "rgba(" + r + ", " + g + ", " + b + ", " + alpha + ")";
+        } else {
+            return "rgb(" + r + ", " + g + ", " + b + ")";
+        }
+      }
+    
+    
+      if ("color" == vars.Bgtype) $element.find(".objectStyle").css("background-color", hexToRGB(vars.Backgroundcolor,bgtranspancy));
       else if ("url" == vars.Bgtype) vars.Texts += '<iframe src="' + vars.Iframeurl + '" width="100%" height="100%"  />';
       else switch ($element.find(".objectStyle").css("background-image", "linear-gradient(rgba(255,255,255,"+ bgtranspancy +") ,rgba(255,255,255,"+ bgtranspancy +")), url(" + vars.Bgimage + ")"),
         $element.find(".objectStyle").css("background-repeat", "no-repeat"), vars.Imagestretch) {
@@ -281,7 +295,7 @@ function ( qlik, $, cssContent) {
 
 
       $element.find('#' + vars.myId).html(vars.Texts);
-
+     
     return qlik.Promise.resolve();
     }
   }

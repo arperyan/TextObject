@@ -1,18 +1,13 @@
-.qv-object-TextObject .icon-zoom-in {
+.qv-object-TextObject .qv-object-nav {
 	display: none;
-}
+  }
 
-.qv-object-TextObject{
+.qv-object-TextObject {
   width: 100%;
   height: 100%;
 }
 
-.objectStyle {
 
-}
-
-
-///---delete if doesnt work
 
 /* Note: the container needs height for the link button to work */
 
