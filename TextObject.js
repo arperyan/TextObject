@@ -228,7 +228,7 @@ function ( qlik, $, cssContent) {
               myHtml : ''
       };
 
-      window.capApi = qlik.currApp();
+      window.capApi = qlik;
       vars.myHtml = '<div id="' + vars.myId + '" class="objectStyle"></div>' ;
 
       
